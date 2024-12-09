@@ -20,14 +20,14 @@ This project is a feature-rich  product management built with Node.js, Express, 
 - **Database**: MongoDB (with Mongoose ODM)
 - **Authentication**: JSON Web Tokens (JWT) and bcrypt for password hashing
 - **File Handling**: Multer for multipart/form-data
-- **Templating Engine**: EJS (or your choice)
+- **Templating Engine**: EJS
 
 ---
 
 ## **Getting Started**
 
 ### **Prerequisites**
-- Node.js (v16 or higher)
+- Node.js (v18 or higher)
 - MongoDB (local or cloud instance)
 - Git
 
