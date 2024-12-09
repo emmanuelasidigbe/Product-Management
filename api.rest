@@ -1,0 +1,2 @@
+GET http://localhost:8080/file/942f3f51-edf0-4428-b70e-79b0be39e16f
+

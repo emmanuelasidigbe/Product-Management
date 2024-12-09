@@ -1,0 +1,72 @@
+<div class="flex flex-col w-screen h-screen overflow-auto text-gray-700 bg-gray-900">
+    <div
+        class="flex items-center flex-shrink-0 w-full h-16 px-10 bg-gray-900 sticky z-[9999] top-0 border-b border-gray-800">
+        <a href="/user/dashboard">
+          <svg class="w-8 h-8 text-green-600 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+        </a>
+        <form action="/librarian/search" method="post">
+            <input
+                class="flex items-center h-10 px-4 ml-10 text-sm bg-gray-700 rounded-full focus:outline-none focus:ring"
+                name="query" type="search" placeholder="Search for anything…" />
+            <button type="submit" class="hidden"></button>
+        </form>
+        <div class="ml-10">
+            <a class="mx-2 text-sm font-semibold text-gray-700" href="/user/category">Category</a>
+        </div>
+        <buton class="flex items-center justify-center w-8 h-8 ml-auto overflow-hidden rounded-full cursor-pointer">
+            <img src="https://assets.codepen.io/5041378/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1600304177&width=512"
+                alt="" />
+        </buton>
+    </div>
+
+     <div class="flex items-center flex-shrink-0 mt-4 h-10 w-72 mx-10">
+            <span class="block text-sm font-semibold">Total products</span>
+            <span
+                class="flex items-center justify-center w-5 h-5 ml-2 text-sm font-semibold text-green-700 bg-white rounded bg-opacity-30">
+                <%= data.length %>
+            </span>
+            <a href="/user/create-category"
+                class="flex items-center justify-center w-32  duration-500 h-6 ml-auto text-green-500 rounded hover:bg-green-500 hover:text-indigo-100">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg><span>add category</span>
+            </a>
+        </div>
+ <div class="px-10 mt-6">
+      <div class="overflow-hidden">
+        <table class="min-w-full  border border-gray-700 rounded-lg">
+          <thead class="bg-gray-800">
+            <tr>
+              <th class="px-6 py-4 text-left text-sm font-medium text-gray-300">#</th>
+              <th class="px-6 py-4 text-left text-sm font-medium text-gray-300 200">Name</th>
+              <th class="px-6 py-4 text-left text-sm font-medium text-gray-300">Description</th>
+              <th class="px-6 py-4 text-left text-sm font-medium text-gray-300">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% data.forEach((item, index) => { %>
+                <tr class="<%= index % 2 === 0 ? 'bg-gray-900' : 'bg-gray-800' %>">
+                  <td class="px-6 py-4 text-gray-300"><%= index + 1 %></td>
+                  <td class="px-6 py-4 text-gray-300"><%= item.name %></td>
+                  <td class="px-6 py-4 text-gray-300"><%= item.description %></td>
+                  <td class="px-6 py-4 text-gray-900">
+                    <form class="<%= item.name === 'Others' ? 'hidden':'' %>" action="/user/delete-category" method="post">
+                    <input type="text" class="hidden" name="_id" value="<%= item._id%>">
+                    <button type="submit" class="rounded-full bg-red-600/40 duration-500 hover:bg-red-400/40 px-2 py-1">delete</button>
+                  </form>
+                </td>
+                </tr>
+              <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+</div>
+<!-- Component End -->
