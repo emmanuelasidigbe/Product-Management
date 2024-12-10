@@ -4,6 +4,7 @@ import { Product } from "../types";
 
 const ProductSchema = new Schema<Product>({
   name: { type: String, required: true },
+  user: {type: Schema.Types.ObjectId, ref: "User", required:true},
   description: { type: String, required: true },
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
   price: { type: Number, required: true },

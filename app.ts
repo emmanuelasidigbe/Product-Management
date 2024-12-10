@@ -9,7 +9,6 @@ import cookieParser from "cookie-parser";
 import path from "path";
 import fs from "fs";
 import { uploadDir } from "./middleware/upload_middleware";
-import ensureDefaultCategories from "./utils/category";
 dotenv.config()
 
 const app: Application = express() 
@@ -39,8 +38,6 @@ app.use("/user",userRoute);
     }
     await mongoose.connect(process.env.MONGO_URL as string);
     console.log("MongoDB connected successfully");
-    await ensureDefaultCategories();
-    
     app.listen(process.env.PORT || 3000, () => {
       console.log(`Server is running on http://localhost:${process.env.PORT || 3000}`);
     });

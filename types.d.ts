@@ -7,6 +7,7 @@ interface User extends Document {
 interface Product extends Document {
   name: string;
   description: string;
+  user: mongoose.Types.ObjectId;
   price: number;
   stock:number;
   category: mongoose.Types.ObjectId;
@@ -16,4 +17,6 @@ interface Product extends Document {
 interface Category extends Document {
   name: string;
   description: string;
+  isdeleted:boolean;
+  user: mongoose.Types.ObjectId;
 }

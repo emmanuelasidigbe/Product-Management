@@ -2,12 +2,10 @@ import { NextFunction,Response, Request } from "express";
 import { body, check, validationResult } from "express-validator";
 
 export const signUpValidator = [
-  // Validate name: it must not be empty and should be at least 3 characters long
-  body("name")
+  body("username")
     .notEmpty()
-    .withMessage("Name is required")
-    .isLength({ min: 3 })
-    .withMessage("Name must be at least 3 characters long"),
+    .withMessage("Name is required"),
+
 
   // Validate email: it must be a valid email
   body("email").isEmail().withMessage("Enter a valid email address"),
