@@ -30,6 +30,10 @@ This project is a feature-rich  product management built with Node.js, Express, 
 - Node.js (v18 or higher)
 - MongoDB (local or cloud instance)
 - Git
+## **EVIRONMENT VARIABLES**
+- PORT
+- JWT_SECRET
+- MONGO_URL
 
 ### **Setup**
 1. **Clone the repository:**
